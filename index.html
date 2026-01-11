@@ -2,33 +2,43 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Our Love 💗</title>
+    <title>Dicky & Anggi ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- TAP SCREEN -->
-    <div id="tapScreen">
-        <h1>Tap once to feel our love 💗</h1>
-    </div>
+<!-- Overlay Tap Once -->
+<div id="overlay">
+    <p>💗 Tap once to feel our love 💗</p>
+</div>
 
-    <!-- MUSIC -->
-    <audio id="music" src="beautiful-in-white.mp3" loop></audio>
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="music/beautiful-in-white.mp3" type="audio/mpeg">
+</audio>
 
-    <!-- MAIN CONTENT -->
-    <div id="content" class="hidden">
-        <h2>Our Memories 📸</h2>
+<header>
+    <h1>Dicky & Anggi</h1>
+    <p>Beautiful Moments in Our Love 🤍</p>
+</header>
 
-        <!-- UPLOAD -->
-        <div class="upload-box">
-            <input type="file" id="photoInput">
-            <button onclick="uploadPhoto()">Upload Photo</button>
-        </div>
+<section class="gallery">
+    <img src="images/foto1.jpg" alt="Kenangan 1">
+    <img src="images/foto2.jpg" alt="Kenangan 2">
+    <img src="images/foto3.jpg" alt="Kenangan 3">
+    <img src="images/foto4.jpg" alt="Kenangan 4">
+    <img src="images/foto5.jpg" alt="Kenangan 5">
+    <img src="images/foto6.jpg" alt="Kenangan 6">
+    <img src="images/foto7.jpg" alt="Kenangan 7">
+    <img src="images/foto8.jpg" alt="Kenangan 8">
+    <img src="images/foto9.jpg" alt="Kenangan 9">
+    <img src="images/foto10.jpg" alt="Kenangan 10">
+</section>
 
-        <!-- GALLERY -->
-        <div class="gallery" id="gallery"></div>
-    </div>
+<footer>
+    <p>Forever Together 💍</p>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
