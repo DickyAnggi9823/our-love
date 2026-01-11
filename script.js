@@ -3,7 +3,7 @@ const content = document.getElementById("content");
 const music = document.getElementById("music");
 const gallery = document.getElementById("gallery");
 
-const API = "http://localhost:3000";
+const API = "https://our-love-backend.onrender.com";
 
 // TAP TO START
 tapScreen.addEventListener("click", function () {
@@ -59,3 +59,4 @@ function uploadPhoto() {
             console.error(err);
         });
 }
+
