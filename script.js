@@ -5,32 +5,38 @@ const gallery = document.getElementById("gallery");
 
 const API = "http://localhost:3000";
 
-/* TAP TO START */
-tapScreen.addEventListener("click", () => {
+// TAP TO START
+tapScreen.addEventListener("click", function () {
     tapScreen.style.display = "none";
     content.classList.remove("hidden");
     music.play();
     loadPhotos();
 });
 
-/* LOAD PHOTOS */
+// LOAD PHOTOS
 function loadPhotos() {
-    fetch(${API}/photos)
-        .then(res => res.json())
-        .then(data => {
+    fetch(API + "/photos")
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (data) {
             gallery.innerHTML = "";
-            data.forEach(img => {
+            data.forEach(function (img) {
                 const image = document.createElement("img");
                 image.src = API + img;
                 gallery.appendChild(image);
             });
+        })
+        .catch(function (err) {
+            console.error(err);
         });
 }
 
-/* UPLOAD PHOTO */
+// UPLOAD PHOTO
 function uploadPhoto() {
     const input = document.getElementById("photoInput");
-    if (!input.files[0]) {
+
+    if (!input.files || !input.files[0]) {
         alert("Pilih foto dulu 💗");
         return;
     }
@@ -38,13 +44,18 @@ function uploadPhoto() {
     const formData = new FormData();
     formData.append("photo", input.files[0]);
 
-    fetch(${API}/upload, {
+    fetch(API + "/upload", {
         method: "POST",
         body: formData
     })
-    .then(res => res.json())
-    .then(() => {
-        input.value = "";
-        loadPhotos();
-    });
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function () {
+            input.value = "";
+            loadPhotos();
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 }
