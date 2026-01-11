@@ -1,22 +1,10 @@
-const images = document.querySelectorAll(".gallery img");
+const overlay = document.getElementById("overlay");
+const music = document.getElementById("bgMusic");
 
-images.forEach(img => {
-    img.addEventListener("click", () => {
-        const popup = document.createElement("div");
-        popup.className = "popup";
-
-        popup.innerHTML = `
-            <span class="close">&times;</span>
-            <img src="${img.src}">
-        `;
-
-        document.body.appendChild(popup);
-
-        popup.addEventListener("click", (e) => {
-            if (e.target.classList.contains("popup") || 
-                e.target.classList.contains("close")) {
-                popup.remove();
-            }
-        });
+overlay.addEventListener("click", () => {
+    music.play().then(() => {
+        overlay.style.display = "none";
+    }).catch(error => {
+        console.log("Music play blocked:", error);
     });
 });
